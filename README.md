@@ -40,3 +40,17 @@ CREATE TABLE categories (
     description VARCHAR(255)
 );
 ```
+
+```
+CREATE TABLE videos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    tags TEXT NOT NULL,
+    video_url TEXT NOT NULL,
+    video_poster TEXT NOT NULL,
+    content TEXT NOT NULL,
+    author_id INT NOT NULL,
+    create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+```
