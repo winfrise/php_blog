@@ -38,9 +38,15 @@ class ScanController extends Controller
                         if(is_dir($path)) {
                             $list = array_merge($list, generateList($path));
                         } else{
+                            preg_match('/[^.]+$/', $file, $matches);
+                            $suffix = $matches[0];
+                            preg_match('/^[^.]+/', $file, $matches);
+                            $title = $matches[0];
                             $list[] = array(
                                 'name' => $file,
                                 'path' => str_replace(VIDEO_DIR, '/video_dir', $path),
+                                'suffix' => $suffix,
+                                'title' => $title,
                             );
                         }
                     }
