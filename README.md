@@ -6,6 +6,16 @@
 > https://deepinout.com/php-tutorials/php-questions/976_2023_08_27_15922.html
 > https://www.cnblogs.com/shaoguan/p/7336991.html [*]
 
+
+#### 代码规范
+在目录设置好以后，我们接下来规定代码的规范：
+
+1. MySQL的表名需小写或小写加下划线，如：item，car_orders。
+2. 模块名（Models）需用大驼峰命名法，即首字母大写，并在名称后添加Model，如：ItemModel，CarModel。
+3. 控制器（Controllers）需用大驼峰命名法，即首字母大写，并在名称后添加Controller，如：ItemController，CarController。
+4. 方法名（Action）需用小驼峰命名法，即首字母小写，如：index，indexPost。
+5. 视图（Views）部署结构为控制器名/行为名，如：item/view.php，car/buy.php。
+
 创建数据表
 
 ```

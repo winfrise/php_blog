@@ -12,10 +12,10 @@ class Resource extends Model
     /**
      * 自定义当前模型操作的数据库表名称，
      * 如果不指定，默认为类名称的小写字符串，
-     * 这里就是 item 表
+     * 这里就是 resource 表
      * @var string
      */
-    protected $table = 'item';
+    protected $table = 'resource';
 
     /**
      * 搜索功能，因为Sql父类里面没有现成的like搜索，
@@ -32,5 +32,8 @@ class Resource extends Model
         $sth->execute();
 
         return $sth->fetchAll();
+    }
+    public function batchAdd(values) {
+
     }
 }
