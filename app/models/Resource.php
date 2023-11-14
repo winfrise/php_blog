@@ -5,9 +5,9 @@ use fastphp\base\Model;
 use fastphp\db\Db;
 
 /**
- * 用户Model
+ * 资源Model
  */
-class Scan extends Model
+class Resource extends Model
 {
     /**
      * 自定义当前模型操作的数据库表名称，
