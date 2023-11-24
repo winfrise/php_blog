@@ -26,8 +26,9 @@ class VideoController extends Controller
     }
 
     // 查看单条记录详情
-    public function detail($id)
+    public function detail()
     {
+        $id = isset($_GET['id']) ? $_GET['id'] : '';
         // 通过?占位符传入$id参数
         $item = (new Video())->where(["id = ?"], [$id])->fetch();
 

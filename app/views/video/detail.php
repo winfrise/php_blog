@@ -1,6 +1,8 @@
-ID：<?php echo $item['id'] ?><br />
-Name：<?php echo isset($item['item_name']) ? $item['item_name'] : '' ?>
+<div>
+<?php echo $item['title'] ?>
+</div>
 
-<br />
-<br />
+<video style="max-width: 100vw; max-height: 100vh;" src="<?php echo $item['video_url'] ?>"></video>
+
+
 <a class="big" href="/item/index">返回</a>

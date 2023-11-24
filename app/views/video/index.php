@@ -5,23 +5,35 @@
 
 <p><a href="/item/manage">新建</a></p>
 
-<table>
+<table class="layui-table">
     <tr>
-        <th>ID</th>
-        <th>内容</th>
+        <th>序号</th>
+        <th>标题</th>
+        <th>文件名</th>
+        <th>后缀</th>
+        <th>标签</th>
+        <th>路径</th>
         <th>操作</th>
     </tr>
-    <?php foreach ($items as $item): ?>
+    <?php foreach ($items as $key => $item): ?>
         <tr>
-            <td><?php echo $item['id'] ?></td>
+            <td><?php echo $key + 1 ?></td>
+            <td><?php echo $item['title'] ?></td>
             <td>
-                <a href="/item/detail/<?php echo $item['id'] ?>" title="查看详情">
+                <a href="/video/detail?id=<?php echo $item['id'] ?>" title="查看详情">
                     <?php echo $item['name'] ?>
                 </a>
             </td>
+            <td><?php echo $item['suffix'] ?></td>
             <td>
-                <a href="/item/manage/<?php echo $item['id'] ?>">编辑</a>
-                <a href="/item/delete/<?php echo $item['id'] ?>">删除</a>
+                <?php foreach (explode(',', $item['tags']) as $tag): ?>
+                    <button type="button" class="layui-btn layui-btn-xs"><?php echo $tag ?></button>
+                <?php endforeach ?>
+            </td>
+            <td><?php echo $item['video_url'] ?></td>
+            <td>
+                <a href="/item/manage/<?php echo $item['name'] ?>">编辑</a>
+                <a href="/item/delete/<?php echo $item['name'] ?>">删除</a>
             </td>
         </tr>
     <?php endforeach ?>
