@@ -48,12 +48,11 @@ class VideoController extends Controller
         $this->render();
     }
     
-    // 操作管理
-    public function manage($id = 0)
+    public function edit()
     {
+        $id = isset($_GET['id']) ? $_GET['id'] : '';
         $item = array();
         if ($id) {
-            // 通过名称占位符传入参数
             $item = (new Video())->where(["id = :id"], [':id' => $id])->fetch();
         }
 
