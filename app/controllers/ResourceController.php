@@ -139,7 +139,7 @@ class ResourceController extends Controller
             $path = $path . '/' . $_GET['path'];
         }
         $list = generateList($path);
-        $count = (new Resource)->batchAdd($list[0]);
+        $count = (new Resource)->batchAdd($list);
 
         $this->assign('title', '添加成功');
         $this->assign('count', $count);

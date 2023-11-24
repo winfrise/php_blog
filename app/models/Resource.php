@@ -37,33 +37,22 @@ class Resource extends Model
     }
     public function batchAdd($data) {
       //判断是否是数组
-      if (!is_array($data)){
-        return $this;
-      }
-      //判断是否全是非法字段
-      if (empty($data)){
-        die("非法数据");
-      }
-      //过滤非法字段
-      foreach ($data as $k => $v){
-        if (!in_array($k,$this->allFields)){
-          unset($data[$k]);
-        }
-      }
-      //将数组中的键取出
-      $keys = array_keys($data);
-      $values = array_values($data);
-      //将数组中取出的键转为字符串拼接
-      $key = implode(",",$keys);
+      // if (!is_array($data)){
+      //   return $this;
+      // }
+      // //判断是否全是非法字段
+      // if (empty($data)){
+      //   die("非法数据");
+      // }
+      // //过滤非法字段
+      // foreach ($data as $k => $v){
+      //   if (!in_array($k,$this->allFields)){
+      //     unset($data[$k]);
+      //   }
+      // };
 
-      //将数组中的值转化为字符串拼接
-      $value = implode("','", $values);
-
-      var_dump("insert into {$this->table} ({$key}) values('{$value}')");
-      
-      //准备SQL语句
-      $sql = "insert into {$this->table} ({$key}) values('{$value}')";
-      //执行并发送SQL
-      return $this->exec($sql);
+      foreach ($data as $v){
+        $this->add($v);
+      };
     }
 }
