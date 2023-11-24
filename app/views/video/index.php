@@ -33,8 +33,11 @@
             </td>
             <td><?php echo $item['video_url'] ?></td>
             <td>
-                <a href="/item/manage/<?php echo $item['name'] ?>">编辑</a>
-                <a href="/item/delete/<?php echo $item['name'] ?>">删除</a>
+               <div style="width: 240px">
+                    <a target="blank" class="layui-btn layui-btn-primary" href="/video/detail/<?php echo $item['name'] ?>">查看</a>
+                    <a target="blank" class="layui-btn layui-btn-primary" href="/video/manage/<?php echo $item['name'] ?>">编辑</a>
+                    <a class="layui-btn layui-btn-primary" href="/video/delete/<?php echo $item['name'] ?>">删除</a>
+               </div>
             </td>
         </tr>
     <?php endforeach ?>
