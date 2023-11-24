@@ -134,12 +134,33 @@ class ResourceController extends Controller
         $this->render();
     }
     public function batchAdd() {
-        $path = VIDEO_TEMP;
+        $dir = VIDEO_TEMP;
         if (isset($_GET['path'])) {
-            $path = $path . '/' . $_GET['path'];
+            $dir = $dir . '/' . $_GET['path'];
         }
-        $list = generateList($path);
+        // 写入数据库
+        $list = generateList($dir);
         $count = (new Resource)->batchAdd($list);
+
+        // 移动文件
+        if (is_dir($dir)) {
+            $files =scandir($dir);
+            foreach ($files as $file) {
+                if ($file !== '.' &&$file !== '..') {
+                    $old_name = $dir . '/' . $file;
+                    $new_name = str_replace( 'video_temp', 'video_dir',$old_name);
+                    var_dump($old_name);
+                    var_dump($new_name);
+                    if (rename($old_name, $new_name)) {
+                        // print_r('移动成功');
+                    } else {
+                        // print_r('移动失败');
+                    }
+                }
+            }
+        }
+
+    
 
         $this->assign('title', '添加成功');
         $this->assign('count', $count);
