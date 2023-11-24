@@ -1,9 +1,10 @@
-<form action="" method="get">
-    <input type="text" value="<?php echo $keyword ?>" name="keyword">
-    <input type="submit" value="搜索">
+<form action="" method="get" style="display: flex;">
+    <input class="layui-input" style="width: 300px;" type="text" value="<?php echo $keyword ?>" name="keyword">
+    <button type="submit" class="layui-btn">搜索</button>
+    <a href="/item/manage" class="layui-btn layui-btn-primary">新建</a>
 </form>
 
-<p><a href="/item/manage">新建</a></p>
+<p></p>
 
 <table class="layui-table">
     <tr>

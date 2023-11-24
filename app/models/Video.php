@@ -26,7 +26,7 @@ class Video extends Model
      */
     public function search($keyword)
     {
-        $sql = "select * from `$this->table` where `item_name` like :keyword";
+        $sql = "select * from `$this->table` where `title` like :keyword";
         $sth = Db::pdo()->prepare($sql);
         $sth = $this->formatParam($sth, [':keyword' => "%$keyword%"]);
         $sth->execute();
