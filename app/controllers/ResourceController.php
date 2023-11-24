@@ -140,6 +140,10 @@ class ResourceController extends Controller
         }
         // 写入数据库
         $list = generateList($dir);
+        foreach($list as $k => $val) {
+            $list[$k]['video_url'] = str_replace( 'video_temp', 'video_dir',$val['video_url']);
+        }
+
         $count = (new Resource)->batchAdd($list);
 
         // 移动文件
@@ -149,18 +153,16 @@ class ResourceController extends Controller
                 if ($file !== '.' &&$file !== '..') {
                     $old_name = $dir . '/' . $file;
                     $new_name = str_replace( 'video_temp', 'video_dir',$old_name);
-                    var_dump($old_name);
-                    var_dump($new_name);
+
                     if (rename($old_name, $new_name)) {
-                        // print_r('移动成功');
+                        // 移动成功
                     } else {
-                        // print_r('移动失败');
+                        // 移动失败
                     }
                 }
             }
         }
 
-    
 
         $this->assign('title', '添加成功');
         $this->assign('count', $count);
