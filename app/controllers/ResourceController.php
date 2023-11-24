@@ -148,11 +148,16 @@ class ResourceController extends Controller
 
         // 移动文件
         if (is_dir($dir)) {
-            $files =scandir($dir);
-            foreach ($files as $file) {
+            $files = scandir($dir);
+            foreach ($files as $k => $file) {
                 if ($file !== '.' &&$file !== '..') {
                     $old_name = $dir . '/' . $file;
                     $new_name = str_replace( 'video_temp', 'video_dir',$old_name);
+
+                    while (file_exists($new_name)) {
+                        // 重命名
+                        $new_name = str_replace('.', '_1.',$new_name);
+                    } 
 
                     if (rename($old_name, $new_name)) {
                         // 移动成功
