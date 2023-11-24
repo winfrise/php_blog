@@ -1,10 +1,21 @@
 
+
 <div>
-    <button type="button" id="add-all-btn">全部添加</button>
+    <form action="/resource/add" method="post">
+        <button type="submit" id="all-btn">全部添加</button>
+    </form>
 </div>
+
+<script>
+const form = document.createElement('form')
+form.action = '/resource/add'
+form.method = 'post'
+form.submit()
+</script>
 
 <table>
     <tr>
+        <th>序号</th>
         <th>标题</th>
         <th>文件名</th>
         <th>后缀</th>
@@ -12,8 +23,9 @@
         <th>路径</th>
         <th>操作</th>
     </tr>
-    <?php foreach ($file_list as $item): ?>
+    <?php foreach ($file_list as $key => $item): ?>
         <tr>
+            <td><?php echo $key + 1 ?></td>
             <td><?php echo $item['title'] ?></td>
             <td>
                 <a href="/item/detail/<?php echo $item['name'] ?>" title="查看详情">

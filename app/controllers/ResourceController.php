@@ -50,7 +50,7 @@ class ResourceController extends Controller
 
                             // 通过正则匹配Tag
                             $tags = array_slice(explode('/', $absolute_path), 2, -1);
-                            var_dump($tags);
+
                             $list[] = array(
                                 'name' => $file,
                                 'path' => $absolute_path,
