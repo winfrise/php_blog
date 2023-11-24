@@ -2,7 +2,45 @@
 namespace app\controllers;
 
 use fastphp\base\Controller;
-use app\models\Scan;
+use app\models\Resource;
+
+function generateList($dir) {
+    $list = [];
+    if (is_dir($dir)) {
+        $files =scandir($dir);
+        foreach ($files as $file) {
+            if ($file !== '.' && $file !== '..') {
+                $path = $dir . '/' . $file;
+                if(is_dir($path)) {
+                    $list = array_merge($list, generateList($path));
+                } else{
+                    //  匹配文件后缀, $file 为 xxx.jpg
+                    preg_match('/[^.]+$/', $file, $matches);
+                    $suffix = $matches[0];
+
+                    // 匹配文件名(不包虑后缀)
+                    preg_match('/^[^.]+/', $file, $matches);
+                    $title = $matches[0];
+
+                    $absolute_path = str_replace(VIDEO_DIR, '/video_dir', $path);
+
+                    // 通过正则匹配Tag
+                    $tags = implode(',', array_slice(explode('/', $absolute_path), 2, -1));
+
+                    $list[] = array(
+                        'name' => $file,
+                        'video_url' => $absolute_path,
+                        'suffix' => $suffix,
+                        'title' => $title,
+                        'tags' => $tags
+                    );
+                }
+            }
+        }
+    }
+
+    return $list;
+}
  
 class ResourceController extends Controller
 {
@@ -28,43 +66,6 @@ class ResourceController extends Controller
             return $tree;
         }
 
-        function generateList($dir) {
-            $list = [];
-            if (is_dir($dir)) {
-                $files =scandir($dir);
-                foreach ($files as $file) {
-                    if ($file !== '.' && $file !== '..') {
-                        $path = $dir . '/' . $file;
-                        if(is_dir($path)) {
-                            $list = array_merge($list, generateList($path));
-                        } else{
-                            //  匹配文件后缀, $file 为 xxx.jpg
-                            preg_match('/[^.]+$/', $file, $matches);
-                            $suffix = $matches[0];
-
-                            // 匹配文件名(不包虑后缀)
-                            preg_match('/^[^.]+/', $file, $matches);
-                            $title = $matches[0];
-
-                            $absolute_path = str_replace(VIDEO_DIR, '/video_dir', $path);
-
-                            // 通过正则匹配Tag
-                            $tags = array_slice(explode('/', $absolute_path), 2, -1);
-
-                            $list[] = array(
-                                'name' => $file,
-                                'path' => $absolute_path,
-                                'suffix' => $suffix,
-                                'title' => $title,
-                                'tags' => $tags
-                            );
-                        }
-                    }
-                }
-            }
-
-            return $list;
-        }
         
         $path = VIDEO_DIR;
         if (isset($_GET['path'])) {
@@ -129,6 +130,18 @@ class ResourceController extends Controller
         $count = (new Item)->delete($id);
 
         $this->assign('title', '删除成功');
+        $this->assign('count', $count);
+        $this->render();
+    }
+    public function batchAdd() {
+        $path = VIDEO_DIR;
+        if (isset($_GET['path'])) {
+            $path = $path . '/' . $_GET['path'];
+        }
+        $list = generateList($path);
+        $count = (new Resource)->batchAdd($list[0]);
+
+        $this->assign('title', '添加成功');
         $this->assign('count', $count);
         $this->render();
     }

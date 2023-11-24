@@ -1,8 +1,8 @@
 
 
 <div>
-    <form action="/resource/add" method="post">
-        <button type="submit" id="all-btn">全部添加</button>
+    <form action="/resource/batchAdd" method="post">
+        <button type="submit" class="layui-btn">全部添加</button>
     </form>
 </div>
 
@@ -13,7 +13,7 @@ form.method = 'post'
 form.submit()
 </script>
 
-<table>
+<table class="layui-table">
     <tr>
         <th>序号</th>
         <th>标题</th>
@@ -34,11 +34,11 @@ form.submit()
             </td>
             <td><?php echo $item['suffix'] ?></td>
             <td>
-                <?php foreach ($item['tags'] as $tag): ?>
+                <?php foreach (explode(',', $item['tags']) as $tag): ?>
                     <span><?php echo $tag ?></span>
                 <?php endforeach ?>
             </td>
-            <td><?php echo $item['path'] ?></td>
+            <td><?php echo $item['video_url'] ?></td>
             <td>
                 <a href="/item/manage/<?php echo $item['name'] ?>">编辑</a>
                 <a href="/item/delete/<?php echo $item['name'] ?>">删除</a>

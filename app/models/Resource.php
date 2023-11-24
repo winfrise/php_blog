@@ -15,7 +15,9 @@ class Resource extends Model
      * 这里就是 resource 表
      * @var string
      */
-    protected $table = 'resource';
+    protected $table = 'videos';
+    protected $allFields = array('name', 'video_url', 'suffix', 'title', 'tags');
+
 
     /**
      * 搜索功能，因为Sql父类里面没有现成的like搜索，
@@ -50,10 +52,15 @@ class Resource extends Model
       }
       //将数组中的键取出
       $keys = array_keys($data);
+      $values = array_values($data);
       //将数组中取出的键转为字符串拼接
       $key = implode(",",$keys);
+
       //将数组中的值转化为字符串拼接
-      $value = implode("','",$data);
+      $value = implode("','", $values);
+
+      var_dump("insert into {$this->table} ({$key}) values('{$value}')");
+      
       //准备SQL语句
       $sql = "insert into {$this->table} ({$key}) values('{$value}')";
       //执行并发送SQL
