@@ -18,11 +18,11 @@ function generateList($dir) {
                     preg_match('/[^.]+$/', $file, $matches);
                     $suffix = $matches[0];
 
-                    // 匹配文件名(不包虑后缀)
+                    // 匹配文件名(不包含后缀)
                     preg_match('/^[^.]+/', $file, $matches);
                     $title = $matches[0];
 
-                    $absolute_path = str_replace(VIDEO_DIR, '/video_dir', $path);
+                    $absolute_path = str_replace(VIDEO_TEMP, '/video_temp', $path);
 
                     // 通过正则匹配Tag
                     $tags = implode(',', array_slice(explode('/', $absolute_path), 2, -1));
@@ -67,7 +67,7 @@ class ResourceController extends Controller
         }
 
         
-        $path = VIDEO_DIR;
+        $path = VIDEO_TEMP;
         if (isset($_GET['path'])) {
             $path = $path . '/' . $_GET['path'];
         }
@@ -134,7 +134,7 @@ class ResourceController extends Controller
         $this->render();
     }
     public function batchAdd() {
-        $path = VIDEO_DIR;
+        $path = VIDEO_TEMP;
         if (isset($_GET['path'])) {
             $path = $path . '/' . $_GET['path'];
         }

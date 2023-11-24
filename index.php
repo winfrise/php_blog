@@ -7,6 +7,7 @@ define('APP_DEBUG', true);
 
 // 视频文件目录 
 define('VIDEO_DIR', __DIR__ . '/video_dir');
+define('VIDEO_TEMP', __DIR__ . '/video_temp');
 
 // 加载框架文件
 require(APP_PATH . 'fastphp/Fastphp.php');
