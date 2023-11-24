@@ -38,15 +38,25 @@ class ResourceController extends Controller
                         if(is_dir($path)) {
                             $list = array_merge($list, generateList($path));
                         } else{
+                            //  匹配文件后缀, $file 为 xxx.jpg
                             preg_match('/[^.]+$/', $file, $matches);
                             $suffix = $matches[0];
+
+                            // 匹配文件名(不包虑后缀)
                             preg_match('/^[^.]+/', $file, $matches);
                             $title = $matches[0];
+
+                            $absolute_path = str_replace(VIDEO_DIR, '/video_dir', $path);
+
+                            // 通过正则匹配Tag
+                            $tags = array_slice(explode('/', $absolute_path), 2, -1);
+                            var_dump($tags);
                             $list[] = array(
                                 'name' => $file,
-                                'path' => str_replace(VIDEO_DIR, '/video_dir', $path),
+                                'path' => $absolute_path,
                                 'suffix' => $suffix,
                                 'title' => $title,
+                                'tags' => $tags
                             );
                         }
                     }

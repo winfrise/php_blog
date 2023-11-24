@@ -64,3 +64,8 @@ CREATE TABLE videos (
     updated_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 ```
+
+### API
+1. str_replace 替换字符
+2. explode
+3. preg_match
