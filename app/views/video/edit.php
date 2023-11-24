@@ -18,7 +18,7 @@
     <legend>编辑</legend>
     </fieldset>
     
-    <form class="layui-form" action="">
+    <form class="layui-form" action="" method="post">
     <div class="layui-form-item">
         <label class="layui-form-label">标题</label>
         <div class="layui-input-block">

@@ -50,6 +50,10 @@ class VideoController extends Controller
     
     public function edit()
     {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // 更新
+        } 
+
         $id = isset($_GET['id']) ? $_GET['id'] : '';
         $item = array();
         if ($id) {
