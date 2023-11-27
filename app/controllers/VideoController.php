@@ -68,7 +68,12 @@ class VideoController extends Controller
     // 更新记录，测试框架DB记录更新（Update）
     public function update()
     {
-        $data = array('id' => $_POST['id'], 'item_name' => $_POST['value']);
+        $data = array(
+            'id' => $_POST['id'], 
+            'title' => $_POST['title'],
+            'video_poster' => $_POST['video_poster'],
+            'tags' => $_POST['tags']
+        );
         $count = (new Video)->where(['id = :id'], [':id' => $data['id']])->update($data);
 
         $this->assign('title', '修改成功');

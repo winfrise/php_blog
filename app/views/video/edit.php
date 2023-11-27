@@ -18,7 +18,12 @@
     <legend>编辑</legend>
     </fieldset>
     
-    <form class="layui-form" action="" method="post">
+    <form class="layui-form" action="/video/update" method="post">
+
+    <?php if (isset($item['id'])): ?>
+        <input type="hidden" name="id" value="<?php echo $item['id'] ?>">
+    <?php endif; ?>
+
     <div class="layui-form-item">
         <label class="layui-form-label">标题</label>
         <div class="layui-input-block">
