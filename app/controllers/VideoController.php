@@ -42,8 +42,12 @@ class VideoController extends Controller
     {
         $data = array(
             'title' => $_POST['title'],
+            'name' => $_POST['name'],
+            'tags' => $_POST['tags'],
+            'video_url' => $_POST['video_url'],
             'video_poster' => $_POST['video_poster'],
-            'tags' => $_POST['tags']
+            'content' => $_POST_['content'],
+            'suffix' => $_POST['suffix']
         );
         $count = (new Video)->add($data);
 
@@ -71,8 +75,12 @@ class VideoController extends Controller
         $data = array(
             'id' => $_POST['id'], 
             'title' => $_POST['title'],
+            'name' => $_POST['name'],
+            'tags' => $_POST['tags'],
+            'video_url' => $_POST['video_url'],
             'video_poster' => $_POST['video_poster'],
-            'tags' => $_POST['tags']
+            'content' => $_POST['content'],
+            'suffix' => $_POST['suffix']
         );
         $count = (new Video)->where(['id = :id'], [':id' => $data['id']])->update($data);
 

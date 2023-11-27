@@ -62,7 +62,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">内容</label>
         <div class="layui-input-block">
-        <textarea name="content" lay-verify="content" placeholder="请输入内容" class="layui-textarea" value="<?php echo isset($item['content']) ? $item['content'] : '' ?>"></textarea>
+        <textarea name="content" lay-verify="content" placeholder="请输入内容" class="layui-textarea"><?php echo isset($item['content']) ? $item['content'] : '' ?></textarea>
         </div>
     </div>
 
