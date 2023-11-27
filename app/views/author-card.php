@@ -62,7 +62,7 @@
 }
 </style>
 
-<div class="author-card">
+<div class="layui-card author-card">
     <div class="author-head" style="background-image:url('/assets/addons/cms/img/author-head.jpeg');"></div>
 
     <div class="author-avatar">

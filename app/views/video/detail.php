@@ -25,5 +25,7 @@
     </main>
     <aside class="layui-col-md4">
       <?php include './app/views/author-card.php' ?>
+      <?php include './app/views/hot-article.php' ?>
+      <?php include './app/views/hot-tags.php' ?>
     </aside>
 </div>
