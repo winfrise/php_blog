@@ -34,8 +34,8 @@
             <td><?php echo $item['video_url'] ?></td>
             <td>
                <div style="width: 240px">
-                    <a target="blank" class="layui-btn layui-btn-primary" href="/video/detail/?id=<?php echo $item['id'] ?>">查看</a>
-                    <a target="blank" class="layui-btn layui-btn-primary" href="/video/edit?id=<?php echo $item['id'] ?>">编辑</a>
+                    <a class="layui-btn layui-btn-primary" href="/video/detail/?id=<?php echo $item['id'] ?>">查看</a>
+                    <a class="layui-btn layui-btn-primary" href="/video/edit?id=<?php echo $item['id'] ?>">编辑</a>
                     <a class="layui-btn layui-btn-primary" href="/video/delete/<?php echo $item['name'] ?>">删除</a>
                </div>
             </td>
