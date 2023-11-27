@@ -30,6 +30,13 @@
         <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input" value="<?php echo isset($item['title']) ? $item['title'] : '' ?>">
         </div>
     </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">名称</label>
+        <div class="layui-input-block">
+        <input type="text" name="name" lay-verify="title" autocomplete="off" placeholder="请输入名称" class="layui-input" value="<?php echo isset($item['title']) ? $item['title'] : '' ?>">
+        </div>
+    </div>
     
     <div class="layui-form-item">
         <label class="layui-form-label">Tags</label>
