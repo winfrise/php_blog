@@ -18,7 +18,7 @@
     <legend>编辑</legend>
     </fieldset>
     
-    <form class="layui-form" action="/video/update" method="post">
+    <form class="layui-form" action="<?php if (isset($item['id'])) { ?>/video/update<?} else { ?>/video/add<? } ?>" method="post">
 
     <?php if (isset($item['id'])): ?>
         <input type="hidden" name="id" value="<?php echo $item['id'] ?>">
@@ -27,42 +27,42 @@
     <div class="layui-form-item">
         <label class="layui-form-label">标题</label>
         <div class="layui-input-block">
-        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input" value="<?php echo $item['title'] ?>">
+        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input" value="<?php echo isset($item['title']) ? $item['title'] : '' ?>">
         </div>
     </div>
     
     <div class="layui-form-item">
         <label class="layui-form-label">Tags</label>
         <div class="layui-input-block">
-        <input type="text" name="tags" lay-verify="tags" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo $item['tags'] ?>">
+        <input type="text" name="tags" lay-verify="tags" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo isset( $item['tags']) ? $item['tags'] : '' ?>">
         </div>
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label">video_url</label>
         <div class="layui-input-block">
-        <input type="text" name="video_url" lay-verify="video_url" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo $item['video_url'] ?>">
+        <input type="text" name="video_url" lay-verify="video_url" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo isset($item['video_url']) ? $item['video_url'] : '' ?>">
         </div>
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label">video_poster</label>
         <div class="layui-input-block">
-        <input type="text" name="video_poster" lay-verify="video_poster" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo $item['video_poster'] ?>">
+        <input type="text" name="video_poster" lay-verify="video_poster" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo isset($item['video_poster']) ? $item['video_poster'] : '' ?>">
         </div>
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label">内容</label>
         <div class="layui-input-block">
-        <textarea name="content" lay-verify="content" placeholder="请输入内容" class="layui-textarea" value="<?php echo $item['content'] ?>"></textarea>
+        <textarea name="content" lay-verify="content" placeholder="请输入内容" class="layui-textarea" value="<?php echo isset($item['content']) ? $item['content'] : '' ?>"></textarea>
         </div>
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label">后缀</label>
         <div class="layui-input-block">
-        <input type="text" name="suffix" lay-verify="suffix" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo $item['suffix'] ?>">
+        <input type="text" name="suffix" lay-verify="suffix" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo isset($item['suffix']) ? $item['suffix'] : '' ?>">
         </div>
     </div>
 

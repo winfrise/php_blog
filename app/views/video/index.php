@@ -1,7 +1,7 @@
 <form action="" method="get" style="display: flex;">
     <input class="layui-input" style="width: 300px;" type="text" value="<?php echo $keyword ?>" name="keyword">
     <button type="submit" class="layui-btn">搜索</button>
-    <a href="/item/manage" class="layui-btn layui-btn-primary">新建</a>
+    <a href="/video/edit" class="layui-btn layui-btn-primary">新建</a>
 </form>
 
 <p></p>

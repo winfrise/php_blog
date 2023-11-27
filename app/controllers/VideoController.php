@@ -40,7 +40,11 @@ class VideoController extends Controller
     // 添加记录，测试框架DB记录创建（Create）
     public function add()
     {
-        $data['item_name'] = $_POST['value'];
+        $data = array(
+            'title' => $_POST['title'],
+            'video_poster' => $_POST['video_poster'],
+            'tags' => $_POST['tags']
+        );
         $count = (new Video)->add($data);
 
         $this->assign('title', '添加成功');
@@ -50,10 +54,6 @@ class VideoController extends Controller
     
     public function edit()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // 更新
-        } 
-
         $id = isset($_GET['id']) ? $_GET['id'] : '';
         $item = array();
         if ($id) {
