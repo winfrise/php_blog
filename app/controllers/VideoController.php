@@ -82,12 +82,15 @@ class VideoController extends Controller
     }
     
     // 删除记录，测试框架DB记录删除（Delete）
-    public function delete($id = null)
+    public function delete()
     {
-        $count = (new Video)->delete($id);
+        $id = isset($_GET['id']) ? $_GET['id'] : '';
+        if ($id) {
+            $count = (new Video)->delete($id);
 
-        $this->assign('title', '删除成功');
-        $this->assign('count', $count);
-        $this->render();
+            $this->assign('title', '删除成功');
+            $this->assign('count', $count);
+            $this->render();
+        }
     }
 }
