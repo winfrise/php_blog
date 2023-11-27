@@ -10,13 +10,15 @@ class VideoController extends Controller
     public function index()
     {
         $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
+        $page_size = isset($_GET['page_size']) ? $_GET['page_size'] : 10;
+        $page_num = isset($_GET['page_num']) ? $_GET['page_num'] : 1;
 
         if ($keyword) {
             $items = (new Video())->search($keyword);
         } else {
             // 查询所有内容，并按倒序排列输出
             // where()方法可不传入参数，或者省略
-            $items = (new Video)->where()->order(['id DESC'])->fetchAll();
+            $items = (new Video)->where()->order(['id DESC'])->limit($page_size * ($page_num - 1), $page_size * $page_num)->fetchAll();
         }
 
         $this->assign('title', '全部条目');

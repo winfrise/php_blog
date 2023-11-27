@@ -14,6 +14,8 @@ class Sql
     // WHERE和ORDER拼装后的条件
     private $filter = '';
 
+    private $limit = '';
+
     // Pdo bindParam()绑定的参数集合
     private $param = array();
 
@@ -57,10 +59,15 @@ class Sql
         return $this;
     }
 
+    public function limit($startNum, $endNum) {
+        $this ->limit = " limit $startNum, $endNum";
+        return $this;
+    }
+
     // 查询所有
     public function fetchAll()
     {
-        $sql = sprintf("select * from `%s` %s", $this->table, $this->filter);
+        $sql = sprintf("select * from `%s` %s %s", $this->table, $this->filter, $this->limit);
         $sth = Db::pdo()->prepare($sql);
         $sth = $this->formatParam($sth, $this->param);
         $sth->execute();
