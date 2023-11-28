@@ -13,14 +13,11 @@
 
 <div class="container" id="content-container">
 
-    <!--<div style="margin-bottom:20px;">-->
-    <!---->
-    <!--</div>-->
-
     <div class="layui-row layui-col-space20">
 
       <main class="layui-col-md8">
-        <div class="layui-carousel" id="test1">
+        <!-- 轮播图Start -->
+        <div class="layui-carousel" id="carousel">
           <div carousel-item>
             <div>
               <img src="https://cdn.demo.fastadmin.net/uploads/focus/1.jpg" />
@@ -40,15 +37,17 @@
             var carousel = layui.carousel;
             //建造实例
             carousel.render({
-              elem: '#test1'
+              elem: '#carousel'
               ,width: '100%' //设置容器宽度
               ,arrow: 'always' //始终显示箭头
               //,anim: 'updown' //切换动画方式
             });
           });
         </script>
-            <div class="panel panel-default index-gallary">
-                <div class="panel-heading">
+        <!-- 轮播图End -->
+
+            <div class="layui-panel index-gallary">
+                <div class="layui-panel-header">
                     <h3 class="panel-title">
                         <span>热门图集</span>
                         <div class="more">
@@ -57,7 +56,7 @@
                     </h3>
 
                 </div>
-                <div class="panel-body">
+                <div class="layui-panel-body">
                     <div class="related-article">
                         <div class="row">
                             <!-- S 热门图集 -->
@@ -202,20 +201,6 @@
 
                                                 <!-- E 首页列表 -->
                     </div>
-
-                    <!-- S 分页 -->
-                    <!--@formatter:off-->
-        <div class="text-center clearfix">
-            <a href="?page=2"
-               data-url="?page=__page__"
-               data-page="2" class="btn btn-default my-4 px-4 btn-loadmore"
-               data-autoload="false">
-                加载更多
-            </a>
-        </div>
-    <!--@formatter:on-->
-
-                    <!-- E 分页 -->
                 </div>
             </div>
         </main>
@@ -480,42 +465,6 @@
 
         </aside>
     </div>
-</div>
-
-<div class="container hidden-xs">
-    <div class="layui-card">
-        <!-- S 热门导航 -->
-        <div class="layui-card-header">
-            <h3 class="panel-title">
-                热门导航
-                <small>为你推荐以下热门网站</small>
-                <a href="/d/navigation/post.html" class="more">申请导航</a>
-            </h3>
-        </div>
-        <div class="layui-card-body">
-            <ul class="list-unstyled list-partner">
-                                    <li><a href="https://www.baidu.com" target="_blank"><img src="/assets/addons/cms/img/logo/baidu.png"></a></li>
-                                    <li><a href="https://www.taobao.com" target="_blank"><img src="/assets/addons/cms/img/logo/taobao.png"></a></li>
-                                    <li><a href="https://weibo.com" target="_blank"><img src="/assets/addons/cms/img/logo/weibo.png"></a></li>
-                            </ul>
-        </div>
-        <!-- E 热门导航 -->
-
-        <!-- S 友情链接 -->
-        <div class="panel-heading">
-            <h3 class="panel-title">友情链接
-                <small>申请友情链接请务必先做好本站链接</small>
-                <a href="/d/friendlink/post.html" class="more">申请友链</a></h3>
-        </div>
-        <div class="panel-body">
-            <div class="list-unstyled list-links">
-                                <a href="https://www.baidu.com" target="_blank" title="百度">百度</a>
-                                <a href="https://www.taobao.com" target="_blank" title="淘宝">淘宝</a>
-                            </div>
-        </div>
-        <!-- E 友情链接 -->
-    </div>
-
 </div>
 
 </main>
