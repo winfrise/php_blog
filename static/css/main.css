@@ -30,16 +30,7 @@ h1 {
 
 td {padding: 1px 30px 1px 0;}
 
-.tag {
-    display: inline-block;
-    padding: 0 8px;
-    height: 24px;
-    line-height: 24px;
-    font-weight: 400;
-    font-size: 13px;
-    text-align: center;
-    color: #007bff;
-    background: #e5f2ff;
-    margin-right: 3px;
-    border-radius: 2px;
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
 }

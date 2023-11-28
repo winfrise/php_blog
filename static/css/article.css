@@ -1,0 +1,148 @@
+  .article-list {
+      padding: 0;
+      background: #fff;
+  }
+
+  .article-list .article-item {
+      padding: 20px 0;
+      border-bottom: 1px solid #efefef;
+  }
+
+  .article-list .article-item .content {
+      margin-top: 15px;
+      color: #919191;
+  }
+
+  .article-list .gallery-article {
+      margin-top: 0;
+  }
+
+  .article-list .gallery-article .row {
+      margin: 0 -10px;
+  }
+
+  .article-list .gallery-article .article-title {
+      margin-bottom: 10px;
+  }
+
+  .article-list .gallery-article .article-title span.highlight {
+      color: red;
+  }
+
+  .article-list .gallery-article .media .media-body {
+      padding-left: 0;
+  }
+
+  .article-list .gallery-article .media .media-body .article-tag {
+      position: relative;
+      margin-top: 10px;
+  }
+
+  .article-list .article-title {
+      margin: 0;
+      font-size: 1.25em;
+      line-height: 1.45;
+      color: #000;
+  }
+
+  .article-list .article-title a {
+      color: #444;
+      transition: all 0.3s ease;
+  }
+
+  .article-list .article-title a:hover {
+      color: #007bff;
+      transition: all 0.3s ease;
+  }
+  }
+
+  .article-list .article-intro {
+      height: 44px;
+      line-height: 22px;
+      color: #828a92;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+  }
+
+  .article-list .media {
+      display: flex;
+      width: 100%;
+      color: #919191;
+  }
+
+  .article-list .media .media-left {
+      overflow: hidden;
+      padding: 0;
+  }
+
+  .article-list .media .media-left a {
+      display: block;
+      width: 160px;
+  }
+
+  .article-list .media .media-body {
+      padding-left: 20px;
+      line-height: 25px;
+  }
+
+  .article-list .media-body {
+      position: relative;
+  }
+
+  .article-list .media-body .article-tag {
+      display: block;
+      clear: both;
+      position: absolute;
+      bottom: 0;
+      color: #aaa;
+      font-size: 13px;
+  }
+
+  .article-list .media-body .article-tag span {
+      margin: 0 8px;
+  }
+
+  .article-list .media-body .article-tag span a {
+      color: #aaa;
+  }
+
+  .article-list .media-body .article-tag .pull-left {
+      height: 34px;
+      line-height: 34px;
+      color: #919191;
+  }
+
+  .article-list .media-body .article-tag .pull-left a {
+      color: #919191;
+  }
+
+.tag {
+  display: inline-block;
+  padding: 0 8px;
+  height: 24px;
+  line-height: 24px;
+  font-weight: 400;
+  font-size: 13px;
+  text-align: center;
+  color: #007bff;
+  background: #e5f2ff;
+  margin-right: 3px;
+  border-radius: 2px;
+}
+
+.media {
+  margin-top: 15px;
+}
+.media:first-child {
+  margin-top: 0;
+}
+
+.media .media-left,
+.media .media-right,
+.media .media-body {
+  display: table-cell;
+  vertical-align: top;
+}
