@@ -58,9 +58,9 @@
                 </div>
                 <div class="layui-panel-body">
                     <div class="related-article">
-                        <div class="row">
+                        <div class="layui-row">
                             <!-- S 热门图集 -->
-                                                        <div class="col-sm-3 col-xs-6">
+                            <div class="layui-col-md3">
                                 <a href="/smarthome/104.html" class="img-zoom">
                                     <div class="embed-responsive embed-responsive-4by3">
                                         <img src="https://cdn.demo.fastadmin.net/uploads/20190327/393cf89c183ad1f896c916f0e623030a.png" alt="智能游戏WIFI无线手柄" class="embed-responsive-item">
@@ -68,7 +68,8 @@
                                 </a>
                                 <h5>智能游戏WIFI无线手柄</h5>
                             </div>
-                                                        <div class="col-sm-3 col-xs-6">
+
+                            <div class="layui-col-md3">
                                 <a href="/wearable/105.html" class="img-zoom">
                                     <div class="embed-responsive embed-responsive-4by3">
                                         <img src="https://cdn.demo.fastadmin.net/uploads/20190328/f2e2c700c82ecb8c1788980eac4df7ba.png" alt="智能WIFI无人机" class="embed-responsive-item">
@@ -76,7 +77,8 @@
                                 </a>
                                 <h5>智能WIFI无人机</h5>
                             </div>
-                                                        <div class="col-sm-3 col-xs-6">
+
+                            <div class="layui-col-md3">
                                 <a href="/wearable/108.html" class="img-zoom">
                                     <div class="embed-responsive embed-responsive-4by3">
                                         <img src="https://cdn.demo.fastadmin.net/uploads/20190328/30752b442c826ab7d3a63f1ddfb5d9ac.png" alt="米家互联网洗烘一体机" class="embed-responsive-item">
@@ -84,7 +86,8 @@
                                 </a>
                                 <h5>米家互联网洗烘一体机</h5>
                             </div>
-                                                        <div class="col-sm-3 col-xs-6">
+
+                            <div class="layui-col-md3">
                                 <a href="/wearable/107.html" class="img-zoom">
                                     <div class="embed-responsive embed-responsive-4by3">
                                         <img src="https://cdn.demo.fastadmin.net/uploads/20190328/36ca21cca109e0f60ba35de08ca4689d.png" alt="米家无线投影仪青春版" class="embed-responsive-item">
@@ -92,7 +95,7 @@
                                 </a>
                                 <h5>米家无线投影仪青春版</h5>
                             </div>
-                                                        <!-- E 热门图集 -->
+                            <!-- E 热门图集 -->
                         </div>
                     </div>
                 </div>
@@ -153,7 +156,7 @@
         <h3 class="article-title">
             <a href="/wearable/108.html">米家互联网洗烘一体机</a>
         </h3>
-        <div class="row">
+        <div class="layui-row">
             <div class="layui-col-md3">
                 <a href="/wearable/108.html" class="img-zoom">
                     <div class="embed-responsive embed-responsive-4by3">
