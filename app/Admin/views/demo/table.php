@@ -8,6 +8,7 @@ layui.use('table', function(){
   table.render({
     elem: '#test',
     url: '/api/video/list',
+    limit: 20,
     parseData: function(res){ //res 即为原始返回的数据
       return {
         "code": res.code, //解析接口状态
