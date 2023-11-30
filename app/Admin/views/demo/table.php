@@ -1,51 +1,33 @@
+<table class="layui-hide" id="test"></table>
 
-    <!-- 内容主体区域 -->
-    <div style="padding: 15px;">内容主体区域。记得修改 layui.css 和 js 的路径</div>
-    <table class="layui-table">
-    <colgroup>
-      <col width="150">
-      <col width="150">
-      <col width="200">
-      <col>
-    </colgroup>
-    <thead>
-      <tr>
-        <th>人物</th>
-        <th>民族</th>
-        <th>出场时间</th>
-        <th>格言</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>贤心</td>
-        <td>汉族</td>
-        <td>1989-10-14</td>
-        <td>人生似修行</td>
-      </tr>
-      <tr>
-        <td>张爱玲</td>
-        <td>汉族</td>
-        <td>1920-09-30</td>
-        <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-      </tr>
-      <tr>
-        <td>Helen Keller</td>
-        <td>拉丁美裔</td>
-        <td>1880-06-27</td>
-        <td> Life is either a daring adventure or nothing.</td>
-      </tr>
-      <tr>
-        <td>岳飞</td>
-        <td>汉族</td>
-        <td>1103-北宋崇宁二年</td>
-        <td>教科书再滥改，也抹不去“民族英雄”的事实</td>
-      </tr>
-      <tr>
-        <td>孟子</td>
-        <td>华夏族（汉族）</td>
-        <td>公元前-372年</td>
-        <td>猿强，则国强。国强，则猿更强！ </td>
-      </tr>
-    </tbody>
-  </table>
+
+<script>
+layui.use('table', function(){
+  var table = layui.table;
+
+  table.render({
+    elem: '#test',
+    url: '/api/video/list',
+    parseData: function(res){ //res 即为原始返回的数据
+      return {
+        "code": res.code, //解析接口状态
+        "msg": res.message, //解析提示文本
+        "count": res.total, //解析数据长度
+        "data": res.data.list //解析数据列表
+      };
+    }
+    cellMinWidth: 80, //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+    cols: [[
+      {field:'id', width:80, title: 'ID', sort: true}
+      ,{field:'username', width:80, title: '用户名'}
+      ,{field:'sex', width:80, title: '性别', sort: true}
+      ,{field:'city', width:80, title: '城市'}
+      ,{field:'sign', title: '签名', width: '30%', minWidth: 100} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+      ,{field:'experience', title: '积分', sort: true}
+      ,{field:'score', title: '评分', sort: true}
+      ,{field:'classify', title: '职业'}
+      ,{field:'wealth', width:137, title: '财富', sort: true}
+    ]]
+  });
+});
+</script>
