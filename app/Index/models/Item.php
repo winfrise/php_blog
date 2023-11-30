@@ -1,5 +1,5 @@
 <?php
-namespace app\models;
+namespace app\Index\models;
 
 use fastphp\base\Model;
 use fastphp\db\Db;

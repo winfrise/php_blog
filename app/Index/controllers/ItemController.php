@@ -1,9 +1,9 @@
 <?php
-namespace app\controllers;
+namespace app\Index\controllers;
 
 use fastphp\base\Controller;
-use app\models\Item;
- 
+use app\Index\models\Item;
+
 class ItemController extends Controller
 {
     // 首页方法，测试框架自定义DB查询
@@ -35,7 +35,7 @@ class ItemController extends Controller
         $this->assign('item', $item);
         $this->render();
     }
-    
+
     // 添加记录，测试框架DB记录创建（Create）
     public function add()
     {
@@ -46,7 +46,7 @@ class ItemController extends Controller
         $this->assign('count', $count);
         $this->render();
     }
-    
+
     // 操作管理
     public function manage($id = 0)
     {
@@ -60,7 +60,7 @@ class ItemController extends Controller
         $this->assign('item', $item);
         $this->render();
     }
-    
+
     // 更新记录，测试框架DB记录更新（Update）
     public function update()
     {
@@ -71,7 +71,7 @@ class ItemController extends Controller
         $this->assign('count', $count);
         $this->render();
     }
-    
+
     // 删除记录，测试框架DB记录删除（Delete）
     public function delete($id = null)
     {

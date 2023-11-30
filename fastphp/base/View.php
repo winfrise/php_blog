@@ -7,31 +7,33 @@ namespace fastphp\base;
 class View
 {
     protected $variables = array();
+    protected $_module;
     protected $_controller;
     protected $_action;
 
-    function __construct($controller, $action)
+    function __construct($module, $controller, $action)
     {
+        $this->_module = $module;
         $this->_controller = strtolower($controller);
         $this->_action = strtolower($action);
     }
- 
+
     // 分配变量
     public function assign($name, $value)
     {
         $this->variables[$name] = $value;
     }
- 
+
     // 渲染显示
     public function render()
     {
         extract($this->variables);
-        $defaultHeader = APP_PATH . 'app/views/header.php';
-        $defaultFooter = APP_PATH . 'app/views/footer.php';
+        $defaultHeader = APP_PATH . 'app/' . $this->_module . '/views/header.php';
+        $defaultFooter = APP_PATH . 'app/' . $this->_module . '/views/footer.php';
 
-        $controllerHeader = APP_PATH . 'app/views/' . $this->_controller . '/header.php';
-        $controllerFooter = APP_PATH . 'app/views/' . $this->_controller . '/footer.php';
-        $controllerLayout = APP_PATH . 'app/views/' . $this->_controller . '/' . $this->_action . '.php';
+        $controllerHeader = APP_PATH . 'app/'. $this->_module . '/views/' . $this->_controller . '/header.php';
+        $controllerFooter = APP_PATH . 'app/'. $this->_module . '/views/' . $this->_controller . '/footer.php';
+        $controllerLayout = APP_PATH . 'app/'. $this->_module . '/views/' . $this->_controller . '/' . $this->_action . '.php';
 
         // 页头文件
         if (is_file($controllerHeader)) {
@@ -46,7 +48,7 @@ class View
         } else {
             echo "<h1>无法找到视图文件</h1>";
         }
-        
+
         // 页脚文件
         if (is_file($controllerFooter)) {
             include ($controllerFooter);

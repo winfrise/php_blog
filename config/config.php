@@ -6,8 +6,11 @@ $config['db']['username'] = 'root';
 $config['db']['password'] = '12345678';
 $config['db']['dbname'] = 'fastphp_db';
 
-// 默认控制器和操作名
+// 默认模块
+$config['defaultModule'] = 'Index';
+// 默认控制器
 $config['defaultController'] = 'Item';
+// 默认操作名
 $config['defaultAction'] = 'index';
 
 return $config;

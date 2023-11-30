@@ -1,9 +1,9 @@
 <?php
-namespace app\controllers;
+namespace app\Admin\controllers;
 
 use fastphp\base\Controller;
-use app\models\Video;
- 
+use app\Admin\models\Video;
+
 class VideoController extends Controller
 {
     // 首页方法，测试框架自定义DB查询
@@ -38,7 +38,7 @@ class VideoController extends Controller
         $this->assign('item', $item);
         $this->render();
     }
-    
+
     // 添加记录，测试框架DB记录创建（Create）
     public function add()
     {
@@ -57,7 +57,7 @@ class VideoController extends Controller
         $this->assign('count', $count);
         $this->render();
     }
-    
+
     public function edit()
     {
         $id = isset($_GET['id']) ? $_GET['id'] : '';
@@ -70,12 +70,12 @@ class VideoController extends Controller
         $this->assign('item', $item);
         $this->render();
     }
-    
+
     // 更新记录，测试框架DB记录更新（Update）
     public function update()
     {
         $data = array(
-            'id' => $_POST['id'], 
+            'id' => $_POST['id'],
             'title' => $_POST['title'],
             'name' => $_POST['name'],
             'tags' => $_POST['tags'],
@@ -90,7 +90,7 @@ class VideoController extends Controller
         $this->assign('count', $count);
         $this->render();
     }
-    
+
     // 删除记录，测试框架DB记录删除（Delete）
     public function delete()
     {
