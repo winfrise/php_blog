@@ -64,6 +64,17 @@ class Sql
         return $this;
     }
 
+    public function getTotal()
+    {
+      $sql = sprintf("select count(*) as total   from `%s` %s", $this->table, $this->filter);
+      $sth = Db::pdo()->prepare($sql);
+      $sth = $this->formatParam($sth, $this->param);
+      $sth->execute();
+      $res = $sth->fetch();
+
+      return $res['total'];
+    }
+
     // 查询所有
     public function fetchAll()
     {

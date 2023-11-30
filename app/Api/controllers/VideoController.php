@@ -36,12 +36,11 @@ class VideoController extends Controller
       if ($keyword) {
           $items = (new Video())->search($keyword);
       } else {
-          // 查询所有内容，并按倒序排列输出
-          // where()方法可不传入参数，或者省略
-          $items = (new Video)->where()->order(['id DESC'])->limit($page_size * ($page_num - 1), $page_size)->fetchAll();
+        $m = (new Video)->where()->order(['id DESC'])->limit($page_size * ($page_num - 1), $page_size);
+        $total = $m->getTotal();
+        $items = $m->fetchAll();
       }
 
-      $total = 88;
       $res = array(
         'code' => '000000',
         'message' => 'Success',
