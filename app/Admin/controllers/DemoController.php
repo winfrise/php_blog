@@ -10,7 +10,7 @@ class DemoController extends Controller
         $this->render();
     }
 
-    public function list()
+    public function table()
     {
 
         $this->render();

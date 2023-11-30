@@ -81,4 +81,4 @@
     </div>
   </div>
 
-  <div class="layui-body">
+  <div class="layui-body" style="padding: 20px;">
