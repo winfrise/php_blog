@@ -12,9 +12,13 @@ layui.use('table', function(){
       return {
         "code": res.code, //解析接口状态
         "msg": res.message, //解析提示文本
-        "count": res.total, //解析数据长度
+        "count": res.data.total, //解析数据长度
         "data": res.data.list //解析数据列表
       };
+    },
+    request: {
+      pageName: 'page_num' //页码的参数名称，默认：page
+      ,limitName: 'page_size' //每页数据量的参数名，默认：limit
     },
     page: true,
     cellMinWidth: 80, //全局定义常规单元格的最小宽度，layui 2.2.1 新增
