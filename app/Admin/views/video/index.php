@@ -6,6 +6,17 @@
 
 <table class="layui-hide" id="test"></table>
 
+<script type="text/html" id="control">
+  <a href="/admin/video/detail?id={{= d.id}}">
+    <button class="layui-btn layui-btn-sm">查看</button>
+  </a>
+  <a href="/admin/video/detail?id={{= d.id}}&action=edit">
+    <button class="layui-btn layui-btn-sm">编辑</button>
+  </a>
+  <a href="/admin/video/delete?id={{= d.id}}">
+    <button class="layui-btn layui-btn-sm">删除</button>
+  </a>
+</script>
 
 <script>
 layui.use('table', function(){
@@ -34,50 +45,16 @@ layui.use('table', function(){
       ,{field:'title', title: '视频标题'}
       ,{field:'video_url', title: '视频地址'}
       ,{field:'video_poster', title: '视频封面'}
+      ,{field: 'tags', title: '标签', templet: function (row) {
+        console.log(row)
+        return row.tags.split(',').map(item => `<span class="layui-btn layui-btn-xs">${item}</span>`).join('')
+      }}
       ,{field:'content', title: '内容'}
       ,{field:'suffix', width:60, title: '后缀'}
       ,{field:'create_time', title: '创建时间'}
       ,{field:'updated_time', title: '更新时间'}
+      ,{fixed: 'right', title: '操作', templet: '#control'}
     ]]
   });
 });
 </script>
-
-
-
-<table class="layui-table">
-    <tr>
-        <th>序号</th>
-        <th>标题</th>
-        <th>文件名</th>
-        <th>后缀</th>
-        <th>标签</th>
-        <th>路径</th>
-        <th>操作</th>
-    </tr>
-    <?php foreach ($items as $key => $item): ?>
-        <tr>
-            <td><?php echo $key + 1 ?></td>
-            <td><?php echo $item['title'] ?></td>
-            <td>
-                <a href="/admin/video/detail?id=<?php echo $item['id'] ?>">
-                    <?php echo $item['name'] ?>
-                </a>
-            </td>
-            <td><?php echo $item['suffix'] ?></td>
-            <td>
-                <?php foreach (explode(',', $item['tags']) as $tag): ?>
-                    <button type="button" class="layui-btn layui-btn-xs"><?php echo $tag ?></button>
-                <?php endforeach ?>
-            </td>
-            <td><?php echo $item['video_url'] ?></td>
-            <td>
-               <div style="width: 240px">
-                    <a class="layui-btn layui-btn-primary" href="/admin/video/detail?id=<?php echo $item['id'] ?>">查看</a>
-                    <a class="layui-btn layui-btn-primary" href="/admin/video/detail?id=<?php echo $item['id'] ?>&action=edit">编辑</a>
-                    <a class="layui-btn layui-btn-primary" href="/admin/video/delete?id=<?php echo $item['id'] ?>">删除</a>
-               </div>
-            </td>
-        </tr>
-    <?php endforeach ?>
-</table>

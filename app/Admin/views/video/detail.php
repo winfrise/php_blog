@@ -39,28 +39,21 @@
       </div>
 
       <div class="layui-form-item">
-          <label class="layui-form-label">名称</label>
-          <div class="layui-input-block">
-          <input type="text" name="name" lay-verify="title" autocomplete="off" placeholder="请输入名称" class="layui-input" value="<?php echo isset($item['title']) ? $item['title'] : '' ?>">
-          </div>
-      </div>
-
-      <div class="layui-form-item">
-          <label class="layui-form-label">Tags</label>
+          <label class="layui-form-label">标签</label>
           <div class="layui-input-block">
           <input type="text" name="tags" lay-verify="tags" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo isset( $item['tags']) ? $item['tags'] : '' ?>">
           </div>
       </div>
 
       <div class="layui-form-item">
-          <label class="layui-form-label">video_url</label>
+          <label class="layui-form-label">视频地址</label>
           <div class="layui-input-block">
           <input type="text" name="video_url" lay-verify="video_url" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo isset($item['video_url']) ? $item['video_url'] : '' ?>">
           </div>
       </div>
 
       <div class="layui-form-item">
-          <label class="layui-form-label">video_poster</label>
+          <label class="layui-form-label">视频封面</label>
           <div class="layui-input-block">
           <input type="text" name="video_poster" lay-verify="video_poster" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo isset($item['video_poster']) ? $item['video_poster'] : '' ?>">
           </div>
