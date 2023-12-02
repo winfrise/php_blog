@@ -55,7 +55,7 @@
       <div class="layui-form-item">
           <label class="layui-form-label">视频封面</label>
           <div class="layui-input-block">
-          <input type="text" name="video_poster" lay-verify="video_poster" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo isset($item['video_poster']) ? $item['video_poster'] : '' ?>">
+          <input type="text" name="video_poster" lay-verify="video_poster" autocomplete="off" placeholder="请上传视频封面" class="layui-input" value="<?php echo isset($item['video_poster']) ? $item['video_poster'] : '' ?>">
           </div>
       </div>
 
