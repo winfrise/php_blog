@@ -55,7 +55,6 @@ class VideoController extends Controller
     {
         $data = array(
             'title' => $_POST['title'],
-            'name' => $_POST['name'],
             'tags' => $_POST['tags'],
             'video_url' => $_POST['video_url'],
             'video_poster' => $_POST['video_poster'],
@@ -88,7 +87,6 @@ class VideoController extends Controller
         $data = array(
             'id' => $_POST['id'],
             'title' => $_POST['title'],
-            'name' => $_POST['name'],
             'tags' => $_POST['tags'],
             'video_url' => $_POST['video_url'],
             'video_poster' => $_POST['video_poster'],

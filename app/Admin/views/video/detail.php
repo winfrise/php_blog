@@ -25,7 +25,7 @@
         <video class="video" controls src="<?php echo $item['video_url'] ?>">
       </div>
 
-      <form class="layui-form form" action="<?php if (isset($item['id'])) { ?>/admin/video/update<?} else { ?>/video/add<? } ?>" method="post">
+      <form class="layui-form form" action="<?php if (isset($item['id'])) { ?>/admin/video/update<?} else { ?>/admin/video/add<? } ?>" method="post">
 
       <?php if (isset($item['id'])): ?>
           <input type="hidden" name="id" value="<?php echo $item['id'] ?>">
