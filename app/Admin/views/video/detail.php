@@ -1,49 +1,68 @@
-<style>
-.wrapper {
-    width: 1200px;
-    margin: 0 auto;
-}
-.title {
-    font-size: 16px;
-    font-weight: bold;
-    color: #666;
-    line-height: 30px;
-}
-.video {
-    width: 780px;
-    height: 440px;
-}
-</style>
+<div style="width: 600px">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend><?php echo $form_title ?></legend>
+    </fieldset>
 
-<div class="wrapper">
-    <main class="layui-col-md8">
-        <div class="title">
-            <?php echo $item['title'] ?>
+    <form class="layui-form" action="<?php if (isset($item['id'])) { ?>/admin/video/update<?} else { ?>/video/add<? } ?>" method="post">
+
+    <?php if (isset($item['id'])): ?>
+        <input type="hidden" name="id" value="<?php echo $item['id'] ?>">
+    <?php endif; ?>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">标题</label>
+        <div class="layui-input-block">
+        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input" value="<?php echo isset($item['title']) ? $item['title'] : '' ?>">
         </div>
+    </div>
 
-        <video class="video" controls src="<?php echo $item['video_url'] ?>"></video>
-        <div class="entry-meta">
-            <ul>
-                <li>本文分类：<a href="/wearable.html">智能设备</a></li>
-                <li>本文标签：无</li>
-                <li>浏览次数：<span>6943</span> 次浏览</li>
-                <li>发布日期：2019-03-28 00:00:00</li>
-                <li>本文链接：<a href="https://cms.demo.fastadmin.net/wearable/108.html">https://cms.demo.fastadmin.net/wearable/108.html</a></li>
-            </ul>
+    <div class="layui-form-item">
+        <label class="layui-form-label">名称</label>
+        <div class="layui-input-block">
+        <input type="text" name="name" lay-verify="title" autocomplete="off" placeholder="请输入名称" class="layui-input" value="<?php echo isset($item['title']) ? $item['title'] : '' ?>">
+        </div>
+    </div>
 
-            <ul class="article-prevnext">
-                <li>
-                    <span>上一篇 &gt;</span>
-                    <a href="/wearable/107.html">米家无线投影仪青春版</a>
-                </li>
-            </ul>
-</div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">Tags</label>
+        <div class="layui-input-block">
+        <input type="text" name="tags" lay-verify="tags" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo isset( $item['tags']) ? $item['tags'] : '' ?>">
+        </div>
+    </div>
 
+    <div class="layui-form-item">
+        <label class="layui-form-label">video_url</label>
+        <div class="layui-input-block">
+        <input type="text" name="video_url" lay-verify="video_url" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo isset($item['video_url']) ? $item['video_url'] : '' ?>">
+        </div>
+    </div>
 
-    </main>
-    <aside class="layui-col-md4">
-      <?php include './app/views/author-card.php' ?>
-      <?php include './app/views/hot-article.php' ?>
-      <?php include './app/views/hot-tags.php' ?>
-    </aside>
+    <div class="layui-form-item">
+        <label class="layui-form-label">video_poster</label>
+        <div class="layui-input-block">
+        <input type="text" name="video_poster" lay-verify="video_poster" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo isset($item['video_poster']) ? $item['video_poster'] : '' ?>">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">内容</label>
+        <div class="layui-input-block">
+        <textarea name="content" lay-verify="content" placeholder="请输入内容" class="layui-textarea"><?php echo isset($item['content']) ? $item['content'] : '' ?></textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">后缀</label>
+        <div class="layui-input-block">
+        <input type="text" name="suffix" lay-verify="suffix" autocomplete="off" placeholder="请输入标签" class="layui-input" value="<?php echo isset($item['suffix']) ? $item['suffix'] : '' ?>">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+        <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+    </form>
 </div>

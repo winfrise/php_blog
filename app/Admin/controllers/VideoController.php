@@ -31,11 +31,22 @@ class VideoController extends Controller
     public function detail()
     {
         $id = isset($_GET['id']) ? $_GET['id'] : '';
+        $action = isset($_GET['action']) ? $_GET['action'] : [];
         // 通过?占位符传入$id参数
         $item = (new Video())->where(["id = ?"], [$id])->fetch();
 
+        if ($action == 'edit') {
+          $form_title = '编辑';
+        } else if ($action === 'add') {
+          $form_title = '添加';
+        } else {
+          $form_title = '详情';
+        }
+
         $this->assign('title', '条目详情');
         $this->assign('item', $item);
+        $this->assign('action', $action);
+        $this->assign('form_title', $form_title);
         $this->render();
     }
 
