@@ -64,6 +64,14 @@
             <dd><a href="/admin/video/index">视频列表</a></dd>
           </dl>
         </li>
+
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">封面管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="/admin/upload/list">封面列表</a></dd>
+            <dd><a href="/admin/upload/add">上传封面</a></dd>
+          </dl>
+        </li>
       </ul>
     </div>
   </div>
