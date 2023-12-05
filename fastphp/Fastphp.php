@@ -58,26 +58,38 @@ class Fastphp
             $urlArray = array_filter($urlArray);
 
             // 获取模块名
-            if (ucfirst($urlArray[0])) {
-              $moduleName = ucfirst($urlArray[0]);
+            if (isset($urlArray[0])) {
+              $moduleName = $urlArray[0];
             }
+            // if (ucfirst($urlArray[0])) {
+            //   $moduleName = ucfirst($urlArray[0]);
+            // }
 
             // 获取控制器名
-            array_shift($urlArray);
-            if (ucfirst($urlArray[0])) {
-              $controllerName = ucfirst($urlArray[0]);
+            if (isset($urlArray[1])) {
+              $controllerName = $urlArray[1];
             }
+            // array_shift($urlArray);
+            // if (ucfirst($urlArray[0])) {
+            //   $controllerName = ucfirst($urlArray[0]);
+            // }
 
 
             // 获取动作名
-            array_shift($urlArray);
-            if ($urlArray[0]) {
-              $actionName = $actionName;
+            if (isset($urlArray[2])) {
+              $actionName = $urlArray[2];
             }
+            // array_shift($urlArray);
+            // if ($urlArray[0]) {
+            //   $actionName = $actionName;
+            // }
 
             // 获取URL参数
-            array_shift($urlArray);
-            $param = $urlArray ? $urlArray : array();
+            if (isset($urlArray[3])) {
+              $param = array_slice($urlArray, 3);
+            }
+            // array_shift($urlArray);
+            // $param = $urlArray ? $urlArray : array();
         }
 
         // 判断控制器和操作是否存在
