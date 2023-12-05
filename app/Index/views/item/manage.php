@@ -1,5 +1,5 @@
 <form  <?php if (isset($item['id'])) { ?>
-            action="/item/update/<?php echo $item['id'] ?>"
+            action="/item/update"
         <?php } else { ?>
             action="/item/add"
         <?php } ?>

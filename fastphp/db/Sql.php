@@ -25,11 +25,12 @@ class Sql
    * 添加一条数据
    * [ 'name'  =>  'thinkphp', 'email' =>  'thinkphp@qq.com' ]
    */
-  public function add($params)
+  public function add($data)
   {
-    $sql = sprintf("insert into `%s` %s", $this->table, $this->formatInsert($data));
-    $sth = Db::pdo()->prepare($sql);
-    $sth->execute();
+    // $sql = sprintf("insert into `%s` %s", $this->table, $this->formatInsert($data));
+    // $sth = Db::pdo()->prepare($sql);
+    // $sth = $this->formatParam($sth, $data);
+    // $sth->execute();
     return $this;
   }
   private function formatInsert($data) {
@@ -117,5 +118,14 @@ class Sql
    */
   public function find() {
 
+  }
+  private function formatParam(PDOStatement $sth, $params = array())
+  {
+      foreach ($params as $param => &$value) {
+          $param = is_int($param) ? $param + 1 : ':' . ltrim($param, ':');
+          $sth->bindParam($param, $value);
+      }
+
+      return $sth;
   }
 }
