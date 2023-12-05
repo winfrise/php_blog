@@ -58,11 +58,10 @@ class Fastphp
             // 删除空的数组元素
             $urlArray = array_filter($urlArray);
             if (count($urlArray) == 1) {
-              header("Location:/{$moduleName}/{$urlArray[0]}/{$actionName}");
+              header("Location:/{$urlArray[0]}/{$actionName}");
               exit;
             } else if (count($urlArray) == 2) {
-              header("Location:/{$moduleName}/{$urlArray[0]}/{$urlArray[1]}");
-              exit;
+              array_unshift($urlArray, null);
             }
 
             // 获取模块名
