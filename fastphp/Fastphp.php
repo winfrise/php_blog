@@ -54,42 +54,31 @@ class Fastphp
         if ($url) {
             // 使用“/”分割字符串，并保存在数组中
             $urlArray = explode('/', $url);
+
             // 删除空的数组元素
             $urlArray = array_filter($urlArray);
+            if (count($urlArray) == 1) {
+              header("Location:/{$moduleName}/{$urlArray[0]}/{$actionName}");
+              exit;
+            } else if (count($urlArray) == 2) {
+              header("Location:/{$moduleName}/{$urlArray[0]}/{$urlArray[1]}");
+              exit;
+            }
 
             // 获取模块名
-            if (isset($urlArray[0])) {
+            if ($urlArray[0]) {
               $moduleName = $urlArray[0];
             }
-            // if (ucfirst($urlArray[0])) {
-            //   $moduleName = ucfirst($urlArray[0]);
-            // }
 
             // 获取控制器名
-            if (isset($urlArray[1])) {
+            if ($urlArray[1]) {
               $controllerName = $urlArray[1];
             }
-            // array_shift($urlArray);
-            // if (ucfirst($urlArray[0])) {
-            //   $controllerName = ucfirst($urlArray[0]);
-            // }
-
 
             // 获取动作名
-            if (isset($urlArray[2])) {
+            if ($urlArray[2]) {
               $actionName = $urlArray[2];
             }
-            // array_shift($urlArray);
-            // if ($urlArray[0]) {
-            //   $actionName = $actionName;
-            // }
-
-            // 获取URL参数
-            if (isset($urlArray[3])) {
-              $param = array_slice($urlArray, 3);
-            }
-            // array_shift($urlArray);
-            // $param = $urlArray ? $urlArray : array();
         }
 
         // 判断控制器和操作是否存在

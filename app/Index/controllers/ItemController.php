@@ -11,15 +11,7 @@ class ItemController extends Controller
     {
         $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
 
-        if ($keyword) {
-            $items = (new Item())->search($keyword);
-        } else {
-            // 查询所有内容，并按倒序排列输出
-            // where()方法可不传入参数，或者省略
-            $items = (new Item)->where()->order(['id DESC'])->fetchAll();
-        }
-
-        $this->assign('title', '全部条目');
+        $items = (new Item)->fetch();
         $this->assign('keyword', $keyword);
         $this->assign('items', $items);
         $this->render();
