@@ -27,10 +27,10 @@ class Sql
    */
   public function add($data)
   {
-    // $sql = sprintf("insert into `%s` %s", $this->table, $this->formatInsert($data));
-    // $sth = Db::pdo()->prepare($sql);
-    // $sth = $this->formatParam($sth, $data);
-    // $sth->execute();
+    $sql = sprintf("insert into `%s` %s", $this->table, $this->formatInsert($data));
+    $sth = Db::pdo()->prepare($sql);
+    $sth = $this->formatParam($sth, $data);
+    $sth->execute();
     return $this;
   }
   private function formatInsert($data) {
