@@ -58,15 +58,22 @@ class Fastphp
             $urlArray = array_filter($urlArray);
 
             // 获取模块名
-            $moduleName = ucfirst($urlArray[0]);
+            if (ucfirst($urlArray[0])) {
+              $moduleName = ucfirst($urlArray[0]);
+            }
 
             // 获取控制器名
             array_shift($urlArray);
-            $controllerName = ucfirst($urlArray[0]);
+            if (ucfirst($urlArray[0])) {
+              $controllerName = ucfirst($urlArray[0]);
+            }
+
 
             // 获取动作名
             array_shift($urlArray);
-            $actionName = $urlArray ? $urlArray[0] : $actionName;
+            if ($urlArray[0]) {
+              $actionName = $actionName;
+            }
 
             // 获取URL参数
             array_shift($urlArray);

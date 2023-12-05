@@ -9,7 +9,7 @@ $config['db']['dbname'] = 'fastphp_db';
 // 默认模块
 $config['defaultModule'] = 'Index';
 // 默认控制器
-$config['defaultController'] = 'Item';
+$config['defaultController'] = 'Index';
 // 默认操作名
 $config['defaultAction'] = 'index';
 
