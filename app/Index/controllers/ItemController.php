@@ -40,17 +40,18 @@ class ItemController extends Controller
     }
 
     // 操作管理
-    public function manage($id = 0)
+    public function manage()
     {
-        $item = array();
-        if ($id) {
-            // 通过名称占位符传入参数
-            $item = (new Item())->where(["id = :id"], [':id' => $id])->fetch();
-        }
+      $id = isset($_GET['id']) ? $_GET['id'] : '';
 
-        $this->assign('title', '管理条目');
-        $this->assign('item', $item);
-        $this->render();
+      $item = array();
+      if ($id) {
+        // 通过名称占位符传入参数
+        $item = (new Item())->where(["id = {$id}"])->fetch();
+      }
+      $this->assign('title', '管理条目');
+      $this->assign('item', $item);
+      $this->render();
     }
 
     // 更新记录，测试框架DB记录更新（Update）

@@ -21,6 +21,17 @@ class Sql
 
     return $this;
   }
+
+  public function where($where = array(), $param = array())
+  {
+      if ($where) {
+        $this->where .= ' WHERE ';
+        $this->where .= implode(' ', $where);
+      }
+
+      return $this;
+  }
+
   /**
    * 添加一条数据
    * [ 'name'  =>  'thinkphp', 'email' =>  'thinkphp@qq.com' ]
