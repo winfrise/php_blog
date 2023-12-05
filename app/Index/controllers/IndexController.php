@@ -1,5 +1,5 @@
 <?php
-namespace app\controllers;
+namespace app\Index\controllers;
 
 use fastphp\base\Controller;
 
