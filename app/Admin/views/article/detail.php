@@ -7,7 +7,7 @@
   <div class="layui-form-item">
     <label class="layui-form-label">标题</label>
     <div class="layui-input-block">
-      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+      <input type="text" name="title" value="<?php echo $item['title'] ?>" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
     </div>
   </div>
 
@@ -29,7 +29,7 @@
   <div class="layui-form-item layui-form-text">
     <label class="layui-form-label">内容</label>
     <div class="layui-input-block">
-      <textarea placeholder="请输入内容" class="layui-textarea" name="content"></textarea>
+      <textarea placeholder="请输入内容" class="layui-textarea" name="content"><?php echo $item['content'] ?></textarea>
     </div>
   </div>
 

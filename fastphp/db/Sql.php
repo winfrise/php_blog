@@ -17,6 +17,9 @@ class Sql
 
   private $limit = '';
 
+  // Pdo bindParam()绑定的参数集合
+  private $param = array();
+
   public function allowField($fields) {
 
     return $this;
@@ -27,6 +30,7 @@ class Sql
       if ($where) {
         $this->where .= ' WHERE ';
         $this->where .= implode(' ', $where);
+        $this->param = $param;
       }
 
       return $this;
@@ -156,6 +160,7 @@ class Sql
   public function fetch() {
     $sql = sprintf("select * from `%s` %s", $this->table, $this->where);
     $sth = Db::pdo()->prepare($sql);
+    $sth = $this->formatParam($sth, $this->param);
     $sth->execute();
 
     return $sth->fetch();
