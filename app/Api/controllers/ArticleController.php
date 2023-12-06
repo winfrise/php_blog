@@ -25,9 +25,9 @@ class ArticleController extends Controller
     $data = array(
         'title' => $_POST['title'],
         'intro' => $_POST['intro'],
-        'content' => $_POST['content'],
-        'is_top' => $_POST['is_top']
+        'content' => $_POST['content']
     );
+
     $count = (new Article)->add($data);
 
     $res = array(
