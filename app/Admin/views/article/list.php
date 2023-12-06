@@ -1,15 +1,26 @@
 
-<table id="articleTable" lay-filter="test"></table>
+<table id="articleTable" lay-filter="tableFilter"></table>
 
 <script type="text/html" id="control">
   <a href="/admin/article/detail?id={{= d.id}}&type=1" class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
   <a href="/admin/article/detail?id={{= d.id}}&type=2" class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">编辑</a>
-  <button class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">删除</button>
+  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="delete">删除</a>
 </script>
 
  <script>
  layui.use('table', function(){
-   var table = layui.table;
+  var table = layui.table;
+
+  //监听工具条
+  table.on('tool(tableFilter)', function(obj){
+    var data = obj.data;
+    if(obj.event === 'delete'){
+      layer.confirm('真的删除行么', function(index){
+        obj.del();
+        layer.close(index);
+      });
+    }
+  });
 
    table.render({
      elem: '#articleTable'
