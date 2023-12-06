@@ -40,7 +40,15 @@ class Sql
   public function limit() {
     return $this;
   }
+  public function getTotal()
+  {
+    $sql = sprintf("select count(*) as total from `%s` %s", $this->table, $this->where);
+    $sth = Db::pdo()->prepare($sql);
+    $sth->execute();
+    $res = $sth->fetch();
 
+    return $res['total'];
+  }
   /**
    * 添加一条数据
    * [ 'name'  =>  'thinkphp', 'email' =>  'thinkphp@qq.com' ]

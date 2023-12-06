@@ -1,14 +1,22 @@
 
-<table id="demo" lay-filter="test"></table>
+<table id="articleTable" lay-filter="test"></table>
 
  <script>
  layui.use('table', function(){
    var table = layui.table;
 
    table.render({
-     elem: '#demo'
+     elem: '#articleTable'
      ,height: 312
      ,url: '/api/article/list'
+     ,parseData: function(res){ //res 即为原始返回的数据
+        return {
+          "code": res.code,
+          "msg": res.message,
+          "count": res.data.total,
+          "data": res.data.list
+        };
+      }
      ,page: true
      ,cols: [[
        {field: 'id', title: 'ID', sort: true, fixed: 'left'}

@@ -12,7 +12,17 @@ class ArticleController extends Controller
   }
 
   public function list() {
-    $this->render();
+    $items = (new Article)->fetchAll();
+    $total = (new Article)->getTotal();
+    $res = array(
+      'code' => '000000',
+      'message' => '成功',
+      'data' => array(
+        'total' => $total,
+        'list' => $items
+      )
+    );
+    echo json_encode($res);
   }
 
   public function detail()
