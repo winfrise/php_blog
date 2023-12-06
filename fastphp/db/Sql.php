@@ -32,6 +32,15 @@ class Sql
       return $this;
   }
 
+
+  public function order() {
+    return $this;
+  }
+
+  public function limit() {
+    return $this;
+  }
+
   /**
    * 添加一条数据
    * [ 'name'  =>  'thinkphp', 'email' =>  'thinkphp@qq.com' ]
