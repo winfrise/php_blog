@@ -2,9 +2,9 @@
 <table id="articleTable" lay-filter="test"></table>
 
 <script type="text/html" id="control">
-<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
-  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">编辑</a>
-  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">删除</a>
+  <a href="/admin/article/detail?id={{= d.id}}&type=1" class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+  <a href="/admin/article/detail?id={{= d.id}}&type=2" class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">编辑</a>
+  <button class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">删除</button>
 </script>
 
  <script>
