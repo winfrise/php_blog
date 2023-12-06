@@ -1,6 +1,12 @@
 
 <table id="articleTable" lay-filter="test"></table>
 
+<script type="text/html" id="control">
+<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">编辑</a>
+  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">删除</a>
+</script>
+
  <script>
  layui.use('table', function(){
    var table = layui.table;
@@ -26,6 +32,7 @@
        ,{field: 'update_time', title: '更新时间'}
        ,{field: 'is_top', title: '是否置顶'}
        ,{field: 'status', title: '状态'}
+       ,{field: 'control', title: '操作', toolbar: '#control'}
      ]]
    });
 
