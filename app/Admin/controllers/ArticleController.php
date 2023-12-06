@@ -11,12 +11,11 @@ class ArticleController extends Controller
   }
 
   public function list() {
-    $this->render()
+    $this->render();
   }
 
   public function detail()
   {
-
     $this->render();
   }
 }
