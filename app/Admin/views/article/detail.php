@@ -1,6 +1,6 @@
 
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
-  <legend>赋值和取值</legend>
+  <legend><?php echo $type == '1' ? '详情' : $type == '2' ? '编辑' : '添加' ?></legend>
 </fieldset>
 
 <form class="layui-form" lay-filter="form">

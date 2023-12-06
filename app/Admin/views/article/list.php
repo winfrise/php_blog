@@ -1,4 +1,8 @@
 
+<div>
+<a href="/admin/article/detail" class="layui-btn layui-btn-primary layui-btn-xs">添加</a>
+</div>
+
 <table id="articleTable" lay-filter="tableFilter"></table>
 
 <script type="text/html" id="control">
