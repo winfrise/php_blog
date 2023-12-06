@@ -4,7 +4,6 @@
             action="/item/add"
         <?php } ?>
       method="post">
-
     <?php if (isset($item['id'])): ?>
         <input type="hidden" name="id" value="<?php echo $item['id'] ?>">
     <?php endif; ?>

@@ -11,7 +11,7 @@ class ItemController extends Controller
     {
         $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
 
-        $items = (new Item)->fetch();
+        $items = (new Item)->fetchAll();
         $this->assign('keyword', $keyword);
         $this->assign('items', $items);
         $this->render();
@@ -49,6 +49,7 @@ class ItemController extends Controller
         // 通过名称占位符传入参数
         $item = (new Item())->where(["id = {$id}"])->fetch();
       }
+
       $this->assign('title', '管理条目');
       $this->assign('item', $item);
       $this->render();
@@ -58,7 +59,8 @@ class ItemController extends Controller
     public function update()
     {
         $data = array('id' => $_POST['id'], 'item_name' => $_POST['value']);
-        $count = (new Item)->where(['id = :id'], [':id' => $data['id']])->update($data);
+
+        $count = (new Item)->where(["id = {$data['id']}"])->update($data);
 
         $this->assign('title', '修改成功');
         $this->assign('count', $count);
@@ -66,12 +68,11 @@ class ItemController extends Controller
     }
 
     // 删除记录，测试框架DB记录删除（Delete）
-    public function delete($id = null)
+    public function delete()
     {
-        $count = (new Item)->delete($id);
-
-        $this->assign('title', '删除成功');
-        $this->assign('count', $count);
-        $this->render();
+      $id = isset($_GET['id']) ? $_GET['id'] : '';
+      $count = (new Item)->delete($id);
+      $this->assign('count', $count);
+      $this->render();
     }
 }

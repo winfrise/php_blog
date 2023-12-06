@@ -89,13 +89,17 @@ class Sql
   /**
    * 修改一条数据
    */
-  public function edit() {
-    return $this;
+  public function update($data) {
+    $sql = sprintf("update `%s` set %s %s", $this->table, $this->formatUpdate($data), $this->where);
+    $sth = Db::pdo()->prepare($sql);
+    $sth = $this->formatParam($sth, $data);
+    $sth->execute();
+    return $sth->rowCount();
   }
   /**
    * 批量修改数据
    */
-  public function batchEdit($data) {
+  public function batchUpdate($data) {
     if (is_array($data)) {
       return false;
     }
@@ -105,8 +109,13 @@ class Sql
   /**
    * 删除一条数据
    */
-  public function delete() {
-    return $this;
+  public function delete($id) {
+    $sql = sprintf("delete from `%s` where `%s` = :%s", $this->table, $this->primary, $this->primary);
+    $sth = Db::pdo()->prepare($sql);
+    $sth = $this->formatParam($sth, [$this->primary => $id]);
+    $sth->execute();
+
+    return $sth->rowCount();
   }
   /**
    * 批量删除数据
@@ -117,7 +126,7 @@ class Sql
   /**
    * 获取数据列表
    */
-  public function fetch() {
+  public function fetchAll() {
     $sql = sprintf("select * from `%s` %s %s", $this->table, $this->where, $this->order, $this->limit);
     $sth = Db::pdo()->prepare($sql);
     $sth->execute();
@@ -127,9 +136,26 @@ class Sql
   /**
    * 查找一条数据
    */
-  public function find() {
+  public function fetch() {
+    $sql = sprintf("select * from `%s` %s", $this->table, $this->where);
+    $sth = Db::pdo()->prepare($sql);
+    $sth->execute();
 
+    return $sth->fetch();
   }
+  /**
+   * 占位符绑定具体的变量值
+   * @param PDOStatement $sth 要绑定的PDOStatement对象
+   * @param array $params 参数，有三种类型：
+   * 1）如果SQL语句用问号?占位符，那么$params应该为
+   *    [$a, $b, $c]
+   * 2）如果SQL语句用冒号:占位符，那么$params应该为
+   *    ['a' => $a, 'b' => $b, 'c' => $c]
+   *    或者
+   *    [':a' => $a, ':b' => $b, ':c' => $c]
+   *
+   * @return PDOStatement
+   */
   private function formatParam(PDOStatement $sth, $params = array())
   {
       foreach ($params as $param => &$value) {
@@ -138,5 +164,15 @@ class Sql
       }
 
       return $sth;
+  }
+  // 将数组转换成更新格式的sql语句
+  private function formatUpdate($data)
+  {
+      $fields = array();
+      foreach ($data as $key => $value) {
+          $fields[] = sprintf("`%s` = :%s", $key, $key);
+      }
+
+      return implode(',', $fields);
   }
 }
