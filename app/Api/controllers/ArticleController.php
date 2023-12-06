@@ -20,4 +20,23 @@ class ArticleController extends Controller
 
     $this->render();
   }
+
+  public function add() {
+    $data = array(
+        'title' => $_POST['title'],
+        'intro' => $_POST['intro'],
+        'content' => $_POST['content'],
+        'is_top' => $_POST['is_top']
+    );
+    $count = (new Article)->add($data);
+
+    $res = array(
+      'code' => '000000',
+      'message' => '成功',
+      'data' => array(
+        'count' => $count
+      )
+    );
+    echo json_encode($res);
+  }
 }

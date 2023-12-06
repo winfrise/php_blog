@@ -43,10 +43,10 @@
 </form>
 
 <script>
-layui.use(['form'], function(){
-  var form = layui.form
-  ,layer = layui.layer
-
+layui.use(['form', 'jquery'], function(){
+  let form = layui.form
+  let layer = layui.layer
+  let $ = layui.jquery
 
 
   //自定义验证规则
@@ -61,8 +61,16 @@ layui.use(['form'], function(){
 
   // 监听提交
   form.on('submit(formSubmit)', function(data){
-    layer.alert(JSON.stringify(data.field), {
-      title: '最终的提交信息'
+    $.ajax({
+      url: '/api/article/add',
+      type: 'POST',
+      data: data.field,
+      success: function () {
+        layer.msg('成功')
+      },
+      error: function (err) {
+        layer.msg('失败')
+      }
     })
     return false;
   });
