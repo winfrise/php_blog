@@ -14,6 +14,11 @@
 </fieldset>
 
 <form class="layui-form" lay-filter="form">
+
+  <?php if (isset($item['id'])): ?>
+    <input type="hidden" name="id" value="<?php echo $item['id'] ?>">
+  <?php endif; ?>
+
   <div class="layui-form-item">
     <label class="layui-form-label">标题</label>
     <div class="layui-input-block">
@@ -24,7 +29,7 @@
   <div class="layui-form-item">
     <label class="layui-form-label">置顶</label>
     <div class="layui-input-block">
-      <input type="checkbox" name="is_top" <?php echo $type == '1' ? 'disabled' : '' ?> lay-skin="switch" lay-text="ON|OFF">
+      <input type="checkbox" name="is_top" <?php echo $type == '1' ? 'disabled' : '' ?> value="1" lay-skin="switch" lay-text="ON|OFF">
     </div>
   </div>
 

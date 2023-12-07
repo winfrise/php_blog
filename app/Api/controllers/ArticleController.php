@@ -32,13 +32,18 @@ class ArticleController extends Controller
   }
 
   public function add() {
+    $id = isset($_POST['id']) ? $_POST['id'] : '';
     $data = array(
         'title' => $_POST['title'],
         'intro' => $_POST['intro'],
         'content' => $_POST['content']
     );
 
-    $count = (new Article)->add($data);
+    if ($id) {
+      $count = (new Article)->where(["id = :id"], [':id' => $id])->update($data);
+    } else {
+      $count = (new Article)->add($data);
+    }
 
     $res = array(
       'code' => '000000',
