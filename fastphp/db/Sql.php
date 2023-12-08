@@ -112,9 +112,12 @@ class Sql
    */
   public function update($data) {
     $sql = sprintf("update `%s` set %s %s", $this->table, $this->formatUpdate($data), $this->where);
+    // $sql = "UPDATE `article` SET `cate_id` = '1', `status` = '1', `is_top` = '1' WHERE `article`.`id` = 2;";
+    var_dump($sql);
     $sth = Db::pdo()->prepare($sql);
     $sth = $this->formatParam($sth, $data);
     $sth->execute();
+
     return $sth->rowCount();
   }
   /**
@@ -181,7 +184,7 @@ class Sql
   private function formatParam(PDOStatement $sth, $params = array())
   {
       foreach ($params as $param => &$value) {
-          $param = is_int($param) ? $param + 1 : ':' . ltrim($param, ':');
+          $param = ':' . ltrim($param, ':');
           $sth->bindParam($param, $value);
       }
 

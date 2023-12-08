@@ -35,10 +35,14 @@ class ArticleController extends Controller
     $id = isset($_POST['id']) ? $_POST['id'] : '';
     $data = array(
         'title' => $_POST['title'],
+        'cate_id' => $_POST['cate_id'],
+        'status' => $_POST['status'],
         'intro' => $_POST['intro'],
-        'content' => $_POST['content']
+        'content' => $_POST['content'],
+        'is_top' => isset($_POST['is_top']) ? intval($_POST['is_top']) : 0,
     );
 
+    var_dump(is_int($data['is_top']));
     if ($id) {
       $count = (new Article)->where(["id = :id"], [':id' => $id])->update($data);
     } else {

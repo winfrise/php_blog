@@ -26,6 +26,33 @@
     </div>
   </div>
 
+
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">分类</label>
+    <div class="layui-input-block">
+      <select lay-search="" name="cate_id">
+        <option value="">请选择或搜索（默认不区分大小写）</option>
+        <option value="1">AAA</option>
+        <option value="2">aaa</option>
+        <option value="3">BBB</option>
+        <option value="4">bbb</option>
+        <option value="5">ABC</option>
+        <option value="6">abc</option>
+        <option value="7">AbC</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">状态</label>
+    <div class="layui-input-block">
+      <input type="checkbox" name="status" <?php echo $type == '1' ? 'disabled' : '' ?> value="1" lay-skin="switch" lay-text="ON|OFF">
+    </div>
+  </div>
+
+
   <div class="layui-form-item">
     <label class="layui-form-label">置顶</label>
     <div class="layui-input-block">
